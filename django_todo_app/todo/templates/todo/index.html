@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ToDo App</title>
+
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
+	</head>
+	<body>
+
+		<div class="container-fluid" id="wrapper">
+			
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4" id="content">
+					<h2 id="title">TASKS</h2>
+					
+					<form action="{% url 'add' %}" method="POST" role="form">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="input-group">
+							  {{ form.text }}
+							  <span class="input-group-btn">
+								  <button type="submit" class="btn btn-success" id="add-btn">ADD</button>
+							  </span>
+							</div>
+						</div>
+					</form>
+
+					<div class="row t10">
+						<div class="col-lg-12">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<a href="{% url 'deletecomplete' %}"><button type="button" class="btn btn-warning">
+										<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
+									</button></a>
+								</div>
+								<div class="btn-group">
+									<a href="{% url 'deleteall' %}"><button type="button" class="btn btn-danger">
+										<i class="glyphicon glyphicon-trash"></i> DELETE ALL
+									</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<ul class="list-group t20">
+						{% for todo in todo_list %}
+							{% if todo.complete %}
+							<li class="list-group-item todo-completed" id="item-task-completed"><strong>{{ todo.text }}</strong></li>
+							{% else %}
+							<a href="{% url 'complete' todo.id %}"><li class="list-group-item" id="item-task"><strong>{{ todo.text }}</strong></li></a>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+
+			<footer>
+				<div class="row pad">
+					<div class="col-lg-12 text-center">
+						<p>Created by <a href="https:christiandev.herokuapp.com" target="_blank" id='christiandev-link'>Christian</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

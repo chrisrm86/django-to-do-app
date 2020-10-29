@@ -1,0 +1,56 @@
+body {
+	background: rgba(44, 62, 80, .8);
+	background-color: #00d1b2;
+	/*font-family: 'Oswald', 'Futura', sans-serif;*/
+	font-family: 'Poppins', sans-serif;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+#wrapper {
+	margin-top: 10% !important;
+}
+#content {
+	background: beige;
+	background-color: #2E4053;
+	padding: 25px;
+}
+#content > h2 {
+	font-size: 120px;
+	text-align: center;
+	padding-top: 0;
+	padding-bottom: 50px;
+	margin-bottom: 10%;
+	font-family: 'Poppins', sans-serif;
+	color: #00d1b2;
+}
+#title{
+	font-size: 500px;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, .3);
+}
+footer {
+	margin-top: 50px;
+	color: white;
+}
+.list-group-item {
+	color: black;
+}
+#item-task{
+	margin-bottom: 10px;
+}
+#item-task-completed{
+	margin-bottom: 10px;
+	color: darkgray;
+}
+#christiandev-link{
+	color: white;
+	font-size: 20px;
+}
